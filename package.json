@@ -2,8 +2,13 @@
   "name": "any-algorithm",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://robzarel.github.io/gh-pages-demo",
+  "homepage": "https://ivanoskov.github.io/any-algorithm",
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@fontsource/roboto": "^5.0.8",
+    "@mui/icons-material": "^5.14.16",
+    "@mui/material": "^5.14.17",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -19,7 +24,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "save-json-api": "node ./src/scripts/save-json-api.js",
+    "save-json-api": "node ./src/server/scripts/save-json-api.js",
     "build": "react-scripts build && npm run save-json-api",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
