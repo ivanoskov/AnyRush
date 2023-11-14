@@ -1,10 +1,11 @@
+import ResponseDataInterface from '../repositories/ResponseDataInterface';
 import getEndpoints from '../server/db';
 
 const endpoints = getEndpoints();
 
 type ENDPOINTS = keyof typeof endpoints;
 type RESPONSE_DATA = {
-  greeting: string;
+  data: string;
 };
 
 const getJson = async <T>(endpoint: ENDPOINTS): Promise<T> => {
@@ -20,12 +21,12 @@ const getJson = async <T>(endpoint: ENDPOINTS): Promise<T> => {
 
 type API = {
   get: {
-    data: () => Promise<RESPONSE_DATA>;
+    data: () => Promise<ResponseDataInterface>;
   };
 };
 const api: API = {
   get: {
-    data: () => getJson<RESPONSE_DATA>('data'),
+    data: () => getJson<ResponseDataInterface>('data'),
   },
 };
 

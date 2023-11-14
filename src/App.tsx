@@ -1,60 +1,44 @@
-import React, { useEffect, useState } from "react";
 import "@fontsource/roboto/300.css";
 import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
-import { Box, Grid, IconButton, useMediaQuery } from "@mui/material";
-import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
-
-import api from "./api";
-import type { RESPONSE_DATA } from "./api";
 
 import "./App.css";
-import SearchLine from "./components/search_line";
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFoundPage from "./pages/not_found_page";
+import AlgorithmPage from "./pages/algorithm_page";
+import Home from "./pages/home_page";
+import React from "react";
+import {
+  Box,
+  createTheme,
+  Grid,
+  ThemeProvider,
+  useMediaQuery,
+} from "@mui/material";
 import Header from "./components/header";
-import { amber, deepOrange, grey } from "@mui/material/colors";
-import CodeEditorWindow from "./components/CodeEditor";
+import { grey } from "@mui/material/colors";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-function Main() {
-  const theme = useTheme();
-  const colorMode = React.useContext(ColorModeContext);
-
-  return (
-    <Box
-      sx={{
-        width: "100%",
-        bgcolor: "background.default",
-        color: "text.primary",
-      }}
-    >
-      <Header theme={theme} colorMode={colorMode} />
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ minHeight: "100vh" }}
-      >
-        <Grid item xs={3}>
-          <SearchLine />
-          <CodeEditorWindow
-            onChange={(type, value) => {}}
-            language="python"
-            code='print("hello world")/r qweqwe'
-            theme="vs-dark"
-          />
-        </Grid>
-      </Grid>
-    </Box>
-  );
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <NotFoundPage />,
+    children: [],
+  },
+  {
+    path: ":algorithm/:language",
+    element: <AlgorithmPage />,
+    loader: ({ params }) => {
+      return params;
+    },
+  },
+]);
 
 function App() {
-  const [data, setData] = useState<RESPONSE_DATA>();
-
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [mode, setMode] = React.useState<"light" | "dark">(
     prefersDarkMode === true ? "dark" : "light"
@@ -108,21 +92,30 @@ function App() {
     [mode]
   );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await api.get.data();
-      setData(response);
-    };
-
-    fetchData();
-  }, []);
-
-  // return <div className='App'>{data ? <p>{data.greeting}</p> : 'no data'}</div>;
-
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
-        <Main />
+        <Box
+          sx={{
+            width: "100%",
+            bgcolor: "background.default",
+            color: "text.primary",
+          }}
+        >
+          <Header theme={theme} colorMode={colorMode} />
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            sx={{ minHeight: "100vh", minWidth: "100%" }}
+          >
+            <Grid item xs={3} sx={{ minWidth: "60%" }}>
+              <RouterProvider router={router} />
+            </Grid>
+          </Grid>
+        </Box>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

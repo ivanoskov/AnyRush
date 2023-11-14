@@ -2,19 +2,23 @@
   "algorithms": [
     {
       "label": "Сортировка пузырьком",
+      "id": "bubble_sort",
       "languages": [
         {
           "language": "Python",
+          "id": "python",
           "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/bubble_sort/bubble_sort.py"
         }
       ]
     },
     {
       "label": "Сортировка выбором",
+      "id": "selection_sort",
       "languages": [
         {
           "language": "Python",
-          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/bubble_sort/bubble_sort.py"
+          "id": "python",
+          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/selection_sort/selection_sort.py"
         }
       ]
     }
