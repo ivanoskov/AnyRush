@@ -13,6 +13,7 @@ import "./App.css";
 import SearchLine from "./components/search_line";
 import Header from "./components/header";
 import { amber, deepOrange, grey } from "@mui/material/colors";
+import CodeEditorWindow from "./components/CodeEditor";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
@@ -39,6 +40,12 @@ function Main() {
       >
         <Grid item xs={3}>
           <SearchLine />
+          <CodeEditorWindow
+            onChange={(type, value) => {}}
+            language="python"
+            code='print("hello world")/r qweqwe'
+            theme="vs-dark"
+          />
         </Grid>
       </Grid>
     </Box>
@@ -79,7 +86,7 @@ function App() {
                 text: {
                   primary: "rgba(0, 0, 0, 0.87)",
                   secondary: "rgba(0, 0, 0, 0.6)",
-                  disabled: "rgba(0, 0, 0, 0.38)"
+                  disabled: "rgba(0, 0, 0, 0.38)",
                 },
               }
             : {
@@ -93,7 +100,7 @@ function App() {
                 text: {
                   primary: "#fff",
                   secondary: "rgba(255, 255, 255, 0.7)",
-                  disabled: "rgba(255, 255, 255, 0.5)"
+                  disabled: "rgba(255, 255, 255, 0.5)",
                 },
               }),
         },
