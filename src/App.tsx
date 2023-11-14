@@ -26,7 +26,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <NotFoundPage />,
     children: [],
   },
   {
@@ -112,7 +111,6 @@ function App() {
             sx={{ minHeight: "100vh", minWidth: "100%" }}
           >
             <Grid item xs={3} sx={{ minWidth: "60%" }}>
-              <RouterProvider router={router} />
             </Grid>
           </Grid>
         </Box>
