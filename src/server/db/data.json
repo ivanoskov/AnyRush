@@ -30,7 +30,7 @@
         },
         {
           "language": "Javascript",
-          "id": "js",
+          "id": "javascript",
           "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/sort/bubble_sort/bubble_sort.js",
           "tested": false,
           "checked": false,
@@ -38,7 +38,7 @@
         },
         {
           "language": "Rust",
-          "id": "rs",
+          "id": "rust",
           "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/sort/bubble_sort/bubble_sort.rs",
           "tested": false,
           "checked": false,
@@ -214,7 +214,7 @@
         },
         {
           "language": "Javascript",
-          "id": "js",
+          "id": "javascript",
           "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/search/binary_search/binary_search.js",
           "tested": false,
           "checked": false,
@@ -236,7 +236,7 @@
         },
         {
           "language": "Javascript",
-          "id": "js",
+          "id": "javascript",
           "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/search/binary_search/binary_search_recursive.js",
           "tested": false,
           "checked": false,

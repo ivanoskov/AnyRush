@@ -37,7 +37,7 @@ const router = createHashRouter([
 ]);
 
 function App() {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const prefersDarkMode = true;
   const [mode, setMode] = React.useState<"light" | "dark">(
     prefersDarkMode === true ? "dark" : "light"
   );
