@@ -6,16 +6,17 @@ import { NavigateFunction, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ResponseDataInterface from "../repositories/ResponseDataInterface";
 import React from "react";
+import LanguageInput from "./language_input";
 
 interface SearchProps {
   data: ResponseDataInterface;
 }
 
-type LanguageInterface = {
+export type LanguageInterface = {
   label: string;
   id: string;
 };
-type AlgorithmInterface = {
+export type AlgorithmInterface = {
   label: string;
   id: string;
   languages: Array<LanguageInterface>;
@@ -36,23 +37,28 @@ export default function SearchLine({ data }: SearchProps) {
   const [language, setLanguage] = useState<LanguageInterface | null>(null);
   const navigate = useNavigate();
 
-  const algorithms: Array<AlgorithmInterface> = [];
-  for (let alg_index = 0; alg_index < data.algorithms.length; alg_index++) {
-    const alg = data.algorithms[alg_index];
-    algorithms.push({ label: alg.label, id: alg.id, languages: [] });
-    console.log(data.algorithms.length);
-    for (
-      let lang_index = 0;
-      lang_index < data.algorithms[alg_index].languages.length;
-      lang_index++
-    ) {
-      const lang = data.algorithms[alg_index].languages[lang_index];
-      algorithms[alg_index].languages.push({
-        label: lang.language,
-        id: lang.id,
-      });
+  const [algorithms, setAlgorithms] = useState<Array<AlgorithmInterface>>(generateAlgorithms(data));
+
+  function generateAlgorithms(data: ResponseDataInterface): Array<AlgorithmInterface> {
+    const algorithms: Array<AlgorithmInterface> = [];
+    for (let alg_index = 0; alg_index < data.algorithms.length; alg_index++) {
+      const alg = data.algorithms[alg_index];
+      algorithms.push({ label: alg.label, id: alg.id, languages: [] });
+      for (
+        let lang_index = 0;
+        lang_index < data.algorithms[alg_index].languages.length;
+        lang_index++
+      ) {
+        const lang = data.algorithms[alg_index].languages[lang_index];
+        algorithms[alg_index].languages.push({
+          label: lang.language,
+          id: lang.id,
+        });
+      }
     }
+    return algorithms;
   }
+
   return (
     <Box
       sx={{
@@ -66,8 +72,11 @@ export default function SearchLine({ data }: SearchProps) {
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Алгоритм" />}
         onChange={(event: any, newValue: AlgorithmInterface | null) => {
+          console.log(algorithm);
           setAlgorithm(null);
+          console.log(algorithm);
           setAlgorithm(newValue);
+          console.log(algorithm);
         }}
       />
       <Box
@@ -87,19 +96,8 @@ export default function SearchLine({ data }: SearchProps) {
           /
         </Typography>
       </Box>
-      <Autocomplete
-        disablePortal
-        id="combo-box-demo"
-        options={algorithm ? algorithm.languages : []}
-        sx={{ width: 300 }}
-        renderInput={(params) => (
-          <TextField {...params} label="Язык программирования" />
-        )}
-        onChange={(event: any, newValue: LanguageInterface | null) => {
-          setLanguage(null);
-          setLanguage(newValue);
-        }}
-      />
+      <LanguageInput algorithm={algorithm} setLanguage={setLanguage}/>
+      
       <Box
         sx={{
           display: "flex",

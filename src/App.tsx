@@ -5,8 +5,7 @@ import "@fontsource/roboto/700.css";
 
 import "./App.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import NotFoundPage from "./pages/not_found_page";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import AlgorithmPage from "./pages/algorithm_page";
 import Home from "./pages/home_page";
 import React from "react";
@@ -22,7 +21,7 @@ import { grey } from "@mui/material/colors";
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />,
@@ -110,7 +109,8 @@ function App() {
             justifyContent="center"
             sx={{ minHeight: "100vh", minWidth: "100%" }}
           >
-            <Grid item xs={3} sx={{ minWidth: "60%" }}>
+            <Grid item xs={3} sx={{ minWidth: "50%" }}>
+              <RouterProvider router={router} />
             </Grid>
           </Grid>
         </Box>

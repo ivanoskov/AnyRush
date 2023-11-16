@@ -1,16 +1,19 @@
-interface LanguageDataInterface {
+export interface LanguageDataInterface {
   language: string;
   id: string;
   code_url: string;
+  tested: boolean;
+  checked: boolean;
+  source: string;
 }
 
-interface AlgorithmDatainterface {
+export interface AlgorithmDatainterface {
   label: string;
   id: string;
   languages: Array<LanguageDataInterface>;
 }
 
-interface ResponseDataInterface {
+export interface ResponseDataInterface {
   algorithms: Array<AlgorithmDatainterface>;
 }
 
