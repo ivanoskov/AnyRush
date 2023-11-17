@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/any-algorithm/static/css/main.43652155.css",
-    "main.js": "/any-algorithm/static/js/main.c4427a40.js",
+    "main.js": "/any-algorithm/static/js/main.1487f0de.js",
     "static/js/787.88f65d30.chunk.js": "/any-algorithm/static/js/787.88f65d30.chunk.js",
     "static/media/roboto-latin-500-normal.woff2": "/any-algorithm/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "/any-algorithm/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -55,17 +55,17 @@
     "static/media/roboto-greek-ext-400-normal.woff2": "/any-algorithm/static/media/roboto-greek-ext-400-normal.169619821ea93019d1bb.woff2",
     "static/media/roboto-greek-ext-300-normal.woff2": "/any-algorithm/static/media/roboto-greek-ext-300-normal.35b9d6be04b95f0f0530.woff2",
     "static/media/roboto-greek-ext-700-normal.woff2": "/any-algorithm/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
+    "index.html": "/any-algorithm/index.html",
     "static/media/roboto-greek-ext-500-normal.woff": "/any-algorithm/static/media/roboto-greek-ext-500-normal.eaa367bbd0b333a7f80b.woff",
     "static/media/roboto-greek-ext-300-normal.woff": "/any-algorithm/static/media/roboto-greek-ext-300-normal.392a45a84c081c4b412d.woff",
     "static/media/roboto-greek-ext-400-normal.woff": "/any-algorithm/static/media/roboto-greek-ext-400-normal.f708607d2a7290fb8bfa.woff",
     "static/media/roboto-greek-ext-700-normal.woff": "/any-algorithm/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
-    "index.html": "/any-algorithm/index.html",
     "main.43652155.css.map": "/any-algorithm/static/css/main.43652155.css.map",
-    "main.c4427a40.js.map": "/any-algorithm/static/js/main.c4427a40.js.map",
+    "main.1487f0de.js.map": "/any-algorithm/static/js/main.1487f0de.js.map",
     "787.88f65d30.chunk.js.map": "/any-algorithm/static/js/787.88f65d30.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.43652155.css",
-    "static/js/main.c4427a40.js"
+    "static/js/main.1487f0de.js"
   ]
 }
