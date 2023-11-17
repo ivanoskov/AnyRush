@@ -265,7 +265,7 @@
         {
           "language": "Python",
           "id": "python",
-          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/compression/machine_learning/gradient_descent.py",
+          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/machine_learning/gradient_descent.py",
           "tested": false,
           "checked": false,
           "source": "https://github.com/TheAlgorithms/Python/blob/master/machine_learning/gradient_descent.py"
@@ -283,6 +283,28 @@
           "tested": false,
           "checked": false,
           "source": "https://github.com/TheAlgorithms/Python/blob/master/matrix/binary_search_matrix.py"
+        }
+      ]
+    },
+    {
+      "label": "Поиск минимального дерева Крускала",
+      "id": "min_tree_kruskal",
+      "languages": [
+        {
+          "language": "Python",
+          "id": "python",
+          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/graphs/min_tree_kruskal.py",
+          "tested": false,
+          "checked": false,
+          "source": "https://github.com/TheAlgorithms/Python/blob/master/graphs/minimum_spanning_tree_kruskal.py"
+        },
+        {
+          "language": "C++",
+          "id": "cpp",
+          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/graphs/min_tree_kruskal.css",
+          "tested": false,
+          "checked": false,
+          "source": "https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/graph/kruskal.cpp"
         }
       ]
     }
