@@ -193,7 +193,7 @@
         {
           "language": "Python",
           "id": "python",
-          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/sort/cocktail_shaker_sort/cocktail_shaker_sort.py",
+          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/sort/shaker_sort/shaker_sort.py",
           "tested": false,
           "checked": false,
           "source": "https://github.com/TheAlgorithms/Python/blob/master/sorts/cocktail_shaker_sort.py"
@@ -301,7 +301,7 @@
         {
           "language": "C++",
           "id": "cpp",
-          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/graphs/min_tree_kruskal.css",
+          "code_url": "https://raw.githubusercontent.com/ivanoskov/any-algorithm/main/code/graphs/min_tree_kruskal.cpp",
           "tested": false,
           "checked": false,
           "source": "https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/graph/kruskal.cpp"
