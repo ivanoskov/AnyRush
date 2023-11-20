@@ -3,7 +3,7 @@ export function bubbleSort(items) {
     let noSwaps
   
     for (let i = length; i > 0; i--) {
-      // flag for optimization
+      // Флаг для оптимизации
       noSwaps = true
       // Number of passes
       for (let j = 0; j < i - 1; j++) {
