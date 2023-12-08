@@ -113,7 +113,7 @@ export default function SearchLine({ data }: SearchProps) {
             backgroundColor: "#eeeeee",
           }}
           onClick={() => {
-            navigate("/" + algorithm?.id + "/" + language?.id);
+            navigate("/algs/" + algorithm?.id + "/" + language?.id);
           }}
         >
           <KeyboardReturnRoundedIcon

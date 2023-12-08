@@ -7,7 +7,7 @@ import "./App.css";
 
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import AlgorithmPage from "./pages/algorithm_page";
-import Home from "./pages/home_page";
+import Home from "./pages/algorithms_page";
 import React from "react";
 import {
   Box,
@@ -18,104 +18,42 @@ import {
 } from "@mui/material";
 import Header from "./components/header";
 import { grey } from "@mui/material/colors";
-
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+import HomePage from "./pages/home_page";
+import AlgorithmsPage from "./pages/algorithms_page";
+import { darkTheme, lightTheme } from "./theme/theme";
+import { useSelector, useDispatch } from "react-redux";
 
 const router = createHashRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomePage />,
     children: [],
   },
   {
-    path: ":algorithm/:language",
-    element: <AlgorithmPage />,
-    loader: ({ params }) => {
-      return params;
-    },
+    path: "/algs",
+    element: <AlgorithmsPage />,
+    children: [
+      {
+        path: "/algs/:algorithm/:language",
+        element: <AlgorithmPage />,
+        loader: ({ params }) => {
+          return params;
+        },
+        children: [],
+      },
+    ],
   },
 ]);
 
 function App() {
   const prefersDarkMode = true;
-  const [mode, setMode] = React.useState<"light" | "dark">(
-    prefersDarkMode === true ? "dark" : "light"
-  );
 
-  const colorMode = React.useMemo(
-    () => ({
-      toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-      },
-    }),
-    []
-  );
-
-  const theme = React.useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode,
-          ...(mode === "light"
-            ? {
-                // palette values for light mode
-                primary: grey,
-                divider: "rgba(0, 0, 0, 0.12)",
-                background: {
-                  default: "#fff",
-                  paper: "#fff",
-                },
-                text: {
-                  primary: "rgba(0, 0, 0, 0.87)",
-                  secondary: "rgba(0, 0, 0, 0.6)",
-                  disabled: "rgba(0, 0, 0, 0.38)",
-                },
-              }
-            : {
-                // palette values for dark mode
-                primary: grey,
-                divider: "rgba(255, 255, 255, 0.12)",
-                background: {
-                  default: "#121212",
-                  paper: "#121212",
-                },
-                text: {
-                  primary: "#fff",
-                  secondary: "rgba(255, 255, 255, 0.7)",
-                  disabled: "rgba(255, 255, 255, 0.5)",
-                },
-              }),
-        },
-      }),
-    [mode]
-  );
+  const theme = useSelector((state: any) => state.theme);
 
   return (
-    <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={theme}>
-        <Box
-          sx={{
-            width: "100%",
-            bgcolor: "background.default",
-            color: "text.primary",
-          }}
-        >
-          <Header theme={theme} colorMode={colorMode} />
-          <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            sx={{ minHeight: "100vh", minWidth: "100%" }}
-          >
-            <Grid item xs={3} sx={{ minWidth: "50%" }}>
-              <RouterProvider router={router} />
-            </Grid>
-          </Grid>
-        </Box>
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+    <ThemeProvider theme={theme.darkTheme ? darkTheme : lightTheme}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 }
 
